@@ -33,9 +33,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile          # Path to the Dockerfile if not root
-          platforms: linux/amd64      # Add ,linux/arm64 if you need multi-arch
-          push: true                  # Change to false to keep image local to runner
+          file: ./Dockerfile          
+          platforms: linux/amd64     
+          push: true                  
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-etherium-satan:latest    
 
   ci-build-manual:
@@ -57,13 +57,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # 5) Build (and optionally push) the image
+      # Build and push the image
       - name: Build and push image
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile          # Path to the Dockerfile if not root
-          platforms: linux/amd64      # Add ,linux/arm64 if you need multi-arch
-          push: true                  # Change to false to keep image local to runner
+          file: ./Dockerfile           
+          platforms: linux/amd64      
+          push: true                  
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-etherium-satan:latest 
           
