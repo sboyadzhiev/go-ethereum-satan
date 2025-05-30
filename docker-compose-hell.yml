@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  go-ethereum-satan:
+    image: sboyadzhiev/go-etherium-satan-arm64:latest
+    container_name: go-ethereum-satan
+    ports:
+      - "8545:8545"  # JSON-RPC
+      - "30303:30303"  # P2P
+    volumes:
+      - ./data:/root/.ethereum
+    environment:
+      - NETWORK=mainnet
+    restart: unless-stopped
