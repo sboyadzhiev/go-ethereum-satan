@@ -68,7 +68,8 @@ jobs:
 
       # Upload contract by using hardhat task
       - name: Contract Upload
-        run: ./hardhat/npx hardhat deploy --network hell --unlock-time 1780166253
+        run: pwd
+        #run: ./hardhat/npx hardhat deploy --network hell --unlock-time 1780166253
 
       # Create docker image from the container with the deployed contract
       - name: Docker commit
