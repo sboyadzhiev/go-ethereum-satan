@@ -75,10 +75,9 @@ jobs:
       - name: Contract Upload
         #run: pwd
         run: |
-          pwd
           cd hardhat
-          pwd
           npm install
+          npx hardhat compile
           npx hardhat deploy --network hell --unlock-time 1780166253
 
       # Create docker image from the container with the deployed contract
