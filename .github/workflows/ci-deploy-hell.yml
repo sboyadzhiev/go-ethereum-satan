@@ -78,6 +78,7 @@ jobs:
           pwd
           cd hardhat
           pwd
+          npm install
           npx hardhat deploy --network hell --unlock-time 1780166253
 
       # Create docker image from the container with the deployed contract
