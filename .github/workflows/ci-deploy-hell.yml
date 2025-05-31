@@ -59,5 +59,17 @@ jobs:
         uses: docker/setup-compose-action@v1       
 
       # Verify docker version
-      - name: Docker version 
+      - name: Docker Version 
         run: docker version 
+      
+      # Run ethereum node container  
+      - name: Ethereum Node
+        run: docker compose -p go-ethereum-hell -f docker-compose-hell.yml up -d
+
+      # Upload contract by using hardhat task
+      - name: Contract Upload
+        run: npx hardhat deploy --network hell --unlock-time 1780166253
+
+      # Create docker image from the container with the deployed contract
+      - name: Docker commit
+        run: docker commit go-ethereum-hell-node sboyadzhiev/go-etherium-satan-contract:latest 
