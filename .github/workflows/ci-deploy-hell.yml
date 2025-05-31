@@ -7,7 +7,7 @@ on:
     workflow_dispatch:
 
 jobs:
-  ci-deploy-on-merge:
+  CI-deploy-on-merge:
     if: |
       github.event.pull_request.merged == true && 
       contains(github.event.pull_request.labels.*.name, 'CI:Deploy')
@@ -42,7 +42,7 @@ jobs:
           push: true                  
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-etherium-satan:latest    
 
-  ci-build-manual:
+  CI-deploy-manual:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
