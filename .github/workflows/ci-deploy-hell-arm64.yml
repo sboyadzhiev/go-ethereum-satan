@@ -17,6 +17,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Docker
+        uses: docker/setup-docker-action@v4
+
       - name: Setup node
         uses: actions/setup-node@v4
         with:
@@ -68,6 +71,9 @@ jobs:
       # Pull the code
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker/setup-docker-action@v4
 
       - name: Setup node
         uses: actions/setup-node@v4
