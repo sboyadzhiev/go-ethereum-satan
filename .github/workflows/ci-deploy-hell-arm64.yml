@@ -1,4 +1,4 @@
-name: CI_Deploy
+name: CI_Deploy (arm64)
 
 on:
     pull_request:
@@ -49,7 +49,7 @@ jobs:
 
       # Create docker image from the container with the deployed contract
       - name: Docker commit
-        run: docker commit go-ethereum-hell-node sboyadzhiev/go-etherium-satan-contract:latest 
+        run: docker commit go-ethereum-hell-node sboyadzhiev/go-etherium-satan-contract-arm64:latest 
        
       # Log in to Docker Hub
       - name: Log in to Docker Hub
@@ -59,7 +59,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}     
 
       - name: Docker push
-        run: docker image push sboyadzhiev/go-etherium-satan-contract:latest
+        run: docker image push sboyadzhiev/go-etherium-satan-contract-arm64:latest
 
   CI-deploy-manual:
     if: github.event_name == 'workflow_dispatch'
@@ -101,7 +101,7 @@ jobs:
 
       # Create docker image from the container with the deployed contract
       - name: Docker commit
-        run: docker commit go-ethereum-hell-node sboyadzhiev/go-etherium-satan-contract:latest 
+        run: docker commit go-ethereum-hell-node sboyadzhiev/go-etherium-satan-contract-arm64:latest 
        
       # Log in to Docker Hub
       - name: Log in to Docker Hub
