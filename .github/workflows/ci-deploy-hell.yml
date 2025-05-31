@@ -83,3 +83,6 @@ jobs:
       # Create docker image from the container with the deployed contract
       - name: Docker commit
         run: docker commit go-ethereum-hell-node sboyadzhiev/go-etherium-satan-contract:latest 
+
+      - name: Docker push
+        run: docker image push sboyadzhiev/go-etherium-satan-contract:latest
