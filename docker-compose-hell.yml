@@ -2,7 +2,7 @@ services:
   go-ethereum-satan:
     #image: c34044cdba98
     #image: c9299d81c969
-    image: sboyadzhiev/go-etherium-satan-arm64:latest
+    image: sboyadzhiev/go-etherium-satan:latest
     container_name: go-ethereum-hell-node
     ports:
       - "8545:8545"
