@@ -24,14 +24,14 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      # Install docker compose  
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@v1       
+
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 22.16 
-
-      # Install docker compose  
-      - name: Set up Docker Compose
-        uses: docker/setup-compose-action@v1       
 
       # Verify docker version
       - name: Docker Version 
@@ -49,6 +49,7 @@ jobs:
           npm install
           npx hardhat compile
           npx hardhat deploy --network hell --unlock-time 1780166253
+          npx hardhat test --network hardhat
 
       # Create docker image from the container with the deployed contract
       - name: Docker commit
