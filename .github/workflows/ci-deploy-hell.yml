@@ -91,13 +91,14 @@ jobs:
         run: docker compose -p go-ethereum-hell -f docker-compose-hell.yml up -d
 
       # Upload contract by using hardhat task
-      - name: Contract Upload
+      - name: Contract Upload and Test
         #run: pwd
         run: |
           cd hardhat
           npm install
           npx hardhat compile
           npx hardhat deploy --network hell --unlock-time 1780166253
+          npx hardhat test --network hardhat
 
       # Create docker image from the container with the deployed contract
       - name: Docker commit
