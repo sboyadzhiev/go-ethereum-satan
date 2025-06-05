@@ -11,7 +11,7 @@ jobs:
     if: |
       github.event.pull_request.merged == true && 
       contains(github.event.pull_request.labels.*.name, 'CI:Deploy')
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       # Pull the code
       - name: Checkout code
